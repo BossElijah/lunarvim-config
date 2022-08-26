@@ -1,7 +1,7 @@
 # LunarVim config
 This is my LunarVim configuration file.
 
-If you want to try it out, just replace your own LunarVim config file with this.
+If you want to try it out, just replace your own LunarVim config file with this. In order to make the config work, run `:PackerSync`, `:PackerCompile`, and `:PackerInstall` inside LunarVim. Then restart, and you're good to go!
 
 I installed the LunarVim stable version (not the rolling).
 

@@ -162,6 +162,7 @@ lvim.plugins = {
   },
   { "lukas-reineke/indent-blankline.nvim" },
   { "nvim-treesitter/nvim-treesitter-context" },
+  { "chaoren/vim-wordmotion" },
   -- {
   --   "Pocco81/AutoSave.nvim",
   --   config = function()
@@ -232,3 +233,17 @@ lvim.builtin.lualine.on_config_done = function(lualine)
 end
 
 vim.opt.colorcolumn = '80'
+vim.g.wordmotion_mappings = {
+  w = 'm',
+  b = 'M',
+  e = 'E',
+  ge = '',
+  aw = 'am',
+  iw = 'im',
+  W = '',
+  B = '',
+  E = '',
+  gE = '',
+  aW = '',
+  iW = ''
+}

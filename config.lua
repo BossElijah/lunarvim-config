@@ -142,6 +142,42 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+-- Completion.
+local cmp = require'cmp'
+lvim.builtin.cmp.mapping = cmp.mapping.preset.insert({
+  ["<Tab>"] = cmp.mapping(function(fallback)
+    -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
+    if cmp.visible() then
+      local entry = cmp.get_selected_entry()
+      if not entry then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        cmp.confirm()
+      else
+        cmp.confirm()
+      end
+    else
+      fallback()
+    end
+  end, {"i","s","c",}),
+  ['<CR>'] = cmp.mapping(function(fallback)
+    fallback()
+  end, {"i","s","c",}),
+  ['<A-k>'] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+    else
+      fallback()
+    end
+  end, {"i","s","c",}),
+  ['<A-j>'] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+    else
+      fallback()
+    end
+  end, {"i","s","c",}),
+})
+
 -- Additional plugins.
 lvim.plugins = {
   {

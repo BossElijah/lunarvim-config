@@ -62,11 +62,38 @@ lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.width = 40
-lvim.builtin.nvimtree.setup.view.auto_resize = true
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
--- These don't work - find out how to open nvim-tree on start.
--- lvim.builtin.nvimtree.setup.open_on_setup = true
--- lvim.builtin.nvimtree.setup.open_on_tab = true
+lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
+lvim.autocommands = {
+  {
+    "VimEnter",
+    {
+      pattern = { "*" },
+      command = "NvimTreeOpen"
+    }
+  },
+  {
+    "VimEnter",
+    {
+      pattern = { "*" },
+      command = "wincmd p"
+    }
+  },
+  {
+    "TabNew",
+    {
+      pattern = { "*" },
+      command = "NvimTreeOpen"
+    }
+  },
+  {
+    "TabNew",
+    {
+      pattern = { "*" },
+      command = "wincmd p"
+    }
+  }
+}
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {

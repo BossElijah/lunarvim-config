@@ -156,6 +156,44 @@ lvim.plugins = {
   { "lukas-reineke/indent-blankline.nvim" },
   { "nvim-treesitter/nvim-treesitter-context" },
   { "chaoren/vim-wordmotion" },
+  {
+    "aca/emmet-ls",
+    config = function()
+      require('nvim-lsp-installer')
+      local lspconfig = require("lspconfig")
+      local configs = require("lspconfig/configs")
+
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
+      capabilities.textDocument.completion.completionItem.resolveSupport = {
+        properties = {
+          "documentation",
+          "detail",
+          "additionalTextEdits",
+        },
+      }
+
+      if not lspconfig.emmet_ls then
+        configs.emmet_ls = {
+          default_config = {
+            cmd = { "emmet-ls", "--stdio" },
+            filetypes = {
+              "html",
+              "css",
+              "javascript",
+              "typescript",
+              "eruby",
+              "typescriptreact",
+              "javascriptreact",
+              "svelte",
+              "vue",
+            },
+          },
+        }
+      end
+      lspconfig.emmet_ls.setup({ capabilities = capabilities })
+    end,
+  },
 }
 
 -- VimScript config for user-defined plugins.

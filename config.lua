@@ -48,8 +48,11 @@ lvim.keys.normal_mode["L"] = ":bn<cr>"
 
 -- Danish special characters.
 lvim.keys.insert_mode['<A-\'>'] = "æ"
+lvim.keys.insert_mode['<A-">'] = "Æ"
 lvim.keys.insert_mode['<A-o>'] = "ø"
+lvim.keys.insert_mode['<A-O>'] = "Ø"
 lvim.keys.insert_mode['<A-a>'] = "å"
+lvim.keys.insert_mode['<A-A>'] = "Å"
 
 -- Custom config for predefined plugins.
 -- After changing plugin config, exit and reopen LunarVim and run :PackerInstall :PackerCompile.

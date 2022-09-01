@@ -154,7 +154,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 local cmp = require'cmp'
 lvim.builtin.cmp.mapping = cmp.mapping.preset.insert({
   ["<Tab>"] = cmp.mapping(function(fallback)
-    -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
+    -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item.
     if cmp.visible() then
       local entry = cmp.get_selected_entry()
       if not entry then
@@ -166,7 +166,7 @@ lvim.builtin.cmp.mapping = cmp.mapping.preset.insert({
     else
       fallback()
     end
-  end, {"i","s","c",}),
+  end, {"i","s",}),
   ['<CR>'] = cmp.mapping(function(fallback)
     fallback()
   end, {"i","s","c",}),
@@ -203,7 +203,6 @@ lvim.plugins = {
   {
     "aca/emmet-ls",
     config = function()
-      require('nvim-lsp-installer')
       local lspconfig = require("lspconfig")
       local configs = require("lspconfig/configs")
 
@@ -226,11 +225,8 @@ lvim.plugins = {
               "css",
               "javascript",
               "typescript",
-              "eruby",
               "typescriptreact",
               "javascriptreact",
-              "svelte",
-              "vue",
             },
           },
         }

@@ -43,8 +43,8 @@ lvim.colorscheme = "onedarker"
 -- Keymappings.
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["H"] = ":bp<cr>"
-lvim.keys.normal_mode["L"] = ":bn<cr>"
+lvim.keys.normal_mode["<S-A-Tab>"] = ":tabprevious<cr>"
+lvim.keys.normal_mode["<A-Tab>"] = ":tabnext<cr>"
 
 -- Danish special characters.
 lvim.keys.insert_mode['<A-\'>'] = "æ"
@@ -60,6 +60,7 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.bufferline.options.mode = 'tabs'
 -- nvim-tree.
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.width = 40
